@@ -23,7 +23,7 @@ public class Spellchecker {
 			myHashtable = new Hashtable<Integer, String>(115007);
 			while (scan.hasNext())
 			{
-				String word = scan.next();
+				String word = scan.next().toLowerCase(Locale.ENGLISH);
 				myHashtable.put(word.hashCode(), word);
 			}
 		}
@@ -42,15 +42,15 @@ public class Spellchecker {
 		if(ds1)
 			while (scan.hasNext())
 			{
-				String word = scan.next();
-				if (!myDictionary.contains(word.toLowerCase(Locale.ENGLISH)))
+				String word = scan.next().toLowerCase(Locale.ENGLISH);
+				if (!myDictionary.contains(word))
 					write.println(word);
 			}
 		else
 			while (scan.hasNext())
 			{
-				String word = scan.next();
-				if (!myHashtable.contains(word.toLowerCase(Locale.ENGLISH)))
+				String word = scan.next().toLowerCase(Locale.ENGLISH);
+				if (!myHashtable.contains(word))
 					write.println(word);
 			}
 		
