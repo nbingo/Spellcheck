@@ -1,4 +1,11 @@
-
+/**
+ * A simple Trie Node that has been modified to work with the {@link WordTrie} class and hold words in it,
+ * including apostrophes and periods (by using a boolean value).
+ * @author Nomi
+ * @since 2.28.16
+ * @version 1.0.0
+ * @see WordTrie
+ */
 public class TrieNode 
 {
 	private final static int DEFAULT_LENGTH = 28;

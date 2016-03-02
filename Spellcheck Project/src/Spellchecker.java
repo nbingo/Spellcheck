@@ -1,10 +1,19 @@
 import java.io.*;
 import java.util.*;
 
+/**
+ * This class enables a dictionary to be created out of a text file
+ * and can check another text file for words that are not in that dictionary
+ * and then print those words out to a different text file.
+ * @author Nomi
+ * @since 2.29.16
+ * @version 1.1.0
+ * @see WordTrie
+ * @see ArrayList
+ */
 public class Spellchecker {
 	
 	private WordTrie myDictionary;
-//	private Hashtable<Integer, String> myHashtable;
 	private ArrayList<String> myList;
 	//Creates a Spellchecker based on a dictionary given at creation.  dictionaryFileName is the name
 	// of the file where the dictionary is to be found.  We may assume the dictionary is a big list

@@ -1,9 +1,11 @@
 
 /**
  * A trie data structure modified specifically to hold words in the alphabet with only lowercase letters.
+ * It uses {@link TrieNode Trie Nodes} to hold the dictionary.
  * @author Nomi
  * @since 2.22.16
  * @see SpellcheckerDataStructure
+ * @see TrieNode
  */
 public class WordTrie implements SpellcheckerDataStructure
 {
@@ -44,6 +46,7 @@ public class WordTrie implements SpellcheckerDataStructure
 		if (root.getNode(firstLetterNum) == null)
 			root.setNode(firstLetterNum, new TrieNode());
 		add(word, root.getNode(firstLetterNum), 1);
+		size++;
 		return true;
 	}
 	
@@ -59,6 +62,7 @@ public class WordTrie implements SpellcheckerDataStructure
 	{
 		if (!contains(word))
 			return false;
+		size--;
 		return true;
 	}
 	
