@@ -3,8 +3,9 @@ import java.util.*;
 
 public class Spellchecker {
 	
-	WordTrie myDictionary;
-	Hashtable<Integer, String> myHashtable;
+	private WordTrie myDictionary;
+//	private Hashtable<Integer, String> myHashtable;
+	private ArrayList<String> myList;
 	//Creates a Spellchecker based on a dictionary given at creation.  dictionaryFileName is the name
 	// of the file where the dictionary is to be found.  We may assume the dictionary is a big list
 	// of words.
@@ -20,12 +21,9 @@ public class Spellchecker {
 		}
 		else
 		{
-			myHashtable = new Hashtable<Integer, String>(115007);
+			myList = new ArrayList<String>(115007);
 			while (scan.hasNext())
-			{
-				String word = scan.next().toLowerCase(Locale.ENGLISH);
-				myHashtable.put(word.hashCode(), word);
-			}
+				myList.add(scan.next().toLowerCase(Locale.ENGLISH));
 		}
 		scan.close();
 	}
@@ -50,7 +48,7 @@ public class Spellchecker {
 			while (scan.hasNext())
 			{
 				String word = scan.next().toLowerCase(Locale.ENGLISH);
-				if (!myHashtable.contains(word))
+				if (Collections.binarySearch(myList, word) < 0)
 					write.println(word);
 			}
 		
